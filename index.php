@@ -1,6 +1,11 @@
 <?php
 
-require_once __DIR__ . 'vendor/autoload.php';
+define('APP_PATH', __DIR__);
 
-echo 'There will be a kinoposik' . '<br>';
-echo 'But more cooler';
+require_once APP_PATH . '/vendor/autoload.php';
+
+use App\App;
+
+$app = new App();
+
+$app->run();
