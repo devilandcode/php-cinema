@@ -1,15 +1,17 @@
 <?php
 
+use App\Controllers\HomeController;
+use App\Controllers\MovieController;
+use App\Kernel\Router\Route;
 
-    return [
-        '/' => function() {
-            echo 'Welcome';
-        },
-        '/home' => function() {
-            include_once APP_PATH . '/views/pages/home.php';
-        },
-        '/movies' => function() {
-            include_once APP_PATH . '/views/pages/movies.php';
-        },
+return [
 
+        Route::get('/', [HomeController::class, 'index']),
+
+        Route::get('/home',[HomeController::class, 'index']),
+
+        Route::get('/movies', [MovieController::class, 'index']),
+        Route::get('/test', function() {
+            echo 'test';
+        }),
     ];
