@@ -6,7 +6,9 @@ use App\Kernel\Router\Route;
 
 return [
 
-        Route::get('/', [HomeController::class, 'index']),
+        Route::get('/', function() {
+            include_once APP_PATH . '/views/pages/welcome.php';
+        }),
 
         Route::get('/home',[HomeController::class, 'index']),
 
