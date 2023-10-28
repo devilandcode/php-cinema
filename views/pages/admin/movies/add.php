@@ -2,6 +2,7 @@
 
 /**
  * @var \App\Kernel\View\View $view;
+ * @var \App\Kernel\Session\Session $session;
  */
 ?>
 
@@ -12,6 +13,15 @@
         <p>Name</p>
         <div class="">
             <input type="text" name="name">
+        </div>
+        <div class="">
+            <?php if ($session->has('name')) : ?>
+                <ul>
+                    <?php foreach ($session->getFlash('name') as $error) : ?>
+                    <li style="color:red;"><?=$error?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
         <div class="">
             <button>Add</button>
