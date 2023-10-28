@@ -4,6 +4,6 @@
  */
 ?>
 
-<?php $view->component('start')?>
+<?php $view->component('start1')?>
 <h1>Home page</h1>
-<?php include_once __DIR__ . '/../components/end.php'; ?>
+<?php $view->component('end')?>

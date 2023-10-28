@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         $this->view('home');
     }
+
+    public function welcome(): void
+    {
+        $this->view('welcome');
+    }
 }
