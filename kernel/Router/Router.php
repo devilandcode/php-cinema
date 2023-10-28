@@ -33,7 +33,6 @@ class Router
             call_user_func([$controller, 'setView'], $this->view);
             call_user_func([$controller, $action]);
         }else {
-            call_user_func($route->getAction());
         }
     }
 
@@ -58,7 +57,6 @@ class Router
     public function initRoutes(): void
     {
         $routes = $this->getRoutes();
-
         foreach ($routes as $route) {
             $this->routes[$route->getMethod()][$route->getUri()] = $route;
         }
