@@ -28,10 +28,6 @@ class MovieController extends Controller
                 $this->session()->set($field, $errors);
                 $this->redirect('/admin/movies/add');
             }
-
-
         }
-
-//        dd('Validation passed');
     }
 }

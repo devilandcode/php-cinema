@@ -2,41 +2,42 @@
 
 namespace App\Kernel\Controller;
 
-use App\Kernel\HTTP\Redirect;
-use App\Kernel\HTTP\Request;
-use App\Kernel\Session\Session;
-use App\Kernel\View\View;
+use App\Kernel\HTTP\RedirectInterface;
+use App\Kernel\HTTP\RequestInterface;
+use App\Kernel\Session\SessionInterface;
+use App\Kernel\View\ViewInterface;
 
 abstract class Controller
 {
-    private View $view;
-    private Request $request;
-    private Redirect $redirect;
-    private Session $session;
+    private ViewInterface $view;
+
+    private RequestInterface $request;
+
+    private RedirectInterface $redirect;
+
+    private SessionInterface $session;
 
     public function view(string $name): void
     {
         $this->view->page($name);
     }
 
-    public function setView(View $view): void
+    public function setView(ViewInterface $view): void
     {
         $this->view = $view;
     }
 
-    public function request(): Request
+    public function request(): RequestInterface
     {
         return $this->request;
     }
-    public function setRequest(Request $request): void
+
+    public function setRequest(RequestInterface $request): void
     {
         $this->request = $request;
     }
 
-    /**
-     * @param Redirect $redirect
-     */
-    public function setRedirect(Redirect $redirect): void
+    public function setRedirect(RedirectInterface $redirect): void
     {
         $this->redirect = $redirect;
     }
@@ -46,18 +47,12 @@ abstract class Controller
         $this->redirect->to($url);
     }
 
-    /**
-     * @param Session $session
-     */
-    public function setSession(Session $session): void
+    public function setSession(SessionInterface $session): void
     {
         $this->session = $session;
     }
 
-    /**
-     * @return Session
-     */
-    public function session(): Session
+    public function session(): SessionInterface
     {
         return $this->session;
     }

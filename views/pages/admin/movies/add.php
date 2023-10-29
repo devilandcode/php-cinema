@@ -15,13 +15,13 @@
             <input type="text" name="name">
         </div>
         <div class="">
-            <?php if ($session->has('name')) : ?>
+            <?php if ($session->has('name')) { ?>
                 <ul>
-                    <?php foreach ($session->getFlash('name') as $error) : ?>
-                    <li style="color:red;"><?=$error?></li>
-                    <?php endforeach; ?>
+                    <?php foreach ($session->getFlash('name') as $error) { ?>
+                    <li style="color:red;"><?= $error?></li>
+                    <?php } ?>
                 </ul>
-            <?php endif; ?>
+            <?php } ?>
         </div>
         <div class="">
             <button>Add</button>
