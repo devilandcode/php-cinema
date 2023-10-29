@@ -18,7 +18,7 @@ class App
         $this->container
             ->router
             ->dispatch(
-            $this->container->request->uri(),
-            $this->container->request->method());
+                $this->container->request->uri(),
+                $this->container->request->method());
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Kernel\Validator;
 
-class Validator
+class Validator implements ValidatorInterface
 {
     private array $errors = [];
+
     private array $data;
 
     public function validate(array $data, array $rules): bool
@@ -27,6 +28,7 @@ class Validator
                 }
             }
         }
+
         return empty($this->errors);
     }
 
@@ -39,28 +41,29 @@ class Validator
     {
         $value = $this->data[$key];
 
-        switch($ruleName) {
-            case 'required';
+        switch ($ruleName) {
+            case 'required':
                 if (empty($value)) {
                     return "Field $key is required";
                 }
                 break;
-            case 'min';
+            case 'min':
                 if (strlen($value) < ($ruleValue)) {
                     return "Field $key must be at least $ruleValue characters long";
                 }
                 break;
-            case 'max';
+            case 'max':
                 if (strlen($value) > ($ruleValue)) {
                     return "Field $key must be at most $ruleValue characters long";
                 }
                 break;
-            case 'email';
-                if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            case 'email':
+                if (! filter_var($value, FILTER_VALIDATE_EMAIL)) {
                     return "Field $key must be a valid email address";
                 }
                 break;
         }
+
         return false;
     }
 }
