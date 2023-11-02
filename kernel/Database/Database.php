@@ -30,9 +30,13 @@ class Database implements DatabaseInterface
         $password = $this->config->get('database.password');
         $charset = $this->config->get('database.charset');
 
+        try {
         $this->pdo = new \PDO(sprintf(
             '%s:host=%s;port=%s;dbname=%s;charset=%s',
             $driver, $host, $port, $database, $charset),
             $username, $password);
+        } catch(\PDOException $e) {
+            exit('Connection was failed: ' . $e->getMessage());
+        }
     }
 }
