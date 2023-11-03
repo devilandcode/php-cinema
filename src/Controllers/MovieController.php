@@ -25,13 +25,15 @@ class MovieController extends Controller
         if (! $validation) {
             foreach ($this->request()->errors() as $field => $errors) {
                 $this->session()->set($field, $errors);
-                $this->redirect('/admin/movies/add');
             }
+            $this->redirect('/admin/movies/add');
         }
-        $id = $this->db()->insert('movie', [
+        $id = $this->db()->insert('movies', [
             'name' => $this->request()->input('name'),
         ]);
 
-        dd('Successfully added fils with if:' . $id);
+        dd('Successfully added film with id:' . $id);
+
+
     }
 }
