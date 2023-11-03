@@ -34,7 +34,7 @@ class Request implements RequestInterface
 
     public function input(string $key, $default = null): mixed
     {
-        return $this->post[$key] ?? $this->get[$key] ?? $default;
+        return trim($this->post[$key]) ?? trim($this->get[$key]) ?? $default;
     }
 
     public function setValidator(ValidatorInterface $validator): void
