@@ -19,6 +19,18 @@
             <?php if ($session->has('error')): ?>
                     <p style="color:red;"><?= $session->has('error')?></p>
             <?php endif; ?>
+        <ul>
+            <?php if ($session->has('email')): ?>
+                <?php foreach ($session->getFlash('email') as $error): ?>
+                    <li style="color:red;"><?= $error?></li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php if ($session->has('password')): ?>
+                <?php foreach ($session->getFlash('password') as $error): ?>
+                    <li style="color:red;"><?= $error?></li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
     </div>
 </div>
 <?php $view->component('end')?>

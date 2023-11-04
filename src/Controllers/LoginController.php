@@ -13,8 +13,32 @@ class LoginController extends Controller
 
     public function login()
     {
+        $validation = $this->request()->validate(
+            [
+                'email' => ['required', 'email'],
+                'password' => ['required', 'min:5']
+            ]
+        );
+
+        if (! $validation) {
+            foreach ($this->request()->errors() as $field => $errors) {
+                $this->session()->set($field, $errors);
+            }
+            $this->redirect('/login');
+            exit;
+        }
+
         $username = $this->request()->input('email');
         $password = $this->request()->input('password');
-        dd($this->auth()->attempt($username, $password), $_SESSION);
+        $this->auth()->attempt($username, $password);
+
+        $this->redirect('/home');
+    }
+
+    public function logout()
+    {
+        $this->auth()->logout();
+
+        $this->redirect('/login');
     }
 }
