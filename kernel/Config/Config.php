@@ -4,7 +4,6 @@ namespace App\Kernel\Config;
 
 class Config implements ConfigInterface
 {
-
     public function get(string $key, $default = null): mixed
     {
         [$file, $key] = explode('.', $key);
