@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Kernel\Middleware;
+namespace App\Middleware;
+
+use App\Kernel\Middleware\AbstractMiddleware;
 
 class GuestMiddleware extends AbstractMiddleware
 {

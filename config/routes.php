@@ -4,9 +4,9 @@ use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\MovieController;
 use App\Controllers\RegisterController;
-use App\Kernel\Middleware\GuestMiddleware;
 use App\Kernel\Router\Route;
 use App\Middleware\AuthMiddleware;
+use App\Middleware\GuestMiddleware;
 
 return [
 
