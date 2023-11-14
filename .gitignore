@@ -1,3 +1,4 @@
 .idea
 layouts
 /vendor/
+public/storage
