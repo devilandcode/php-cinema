@@ -10,7 +10,7 @@ use App\Middleware\GuestMiddleware;
 
 return [
 
-    Route::get('/home', [HomeController::class, 'index']),
+    Route::get('/', [HomeController::class, 'index']),
     Route::get('/movies', [MovieController::class, 'index']),
     Route::get('/admin/movies/add', [MovieController::class, 'add'], [AuthMiddleware::class]),
     Route::post('/admin/movies/add', [MovieController::class, 'store'], [AuthMiddleware::class]),

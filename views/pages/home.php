@@ -5,5 +5,15 @@
 ?>
 
 <?php $view->component('start')?>
-<h1>Home page</h1>
+    <main>
+        <div class="container">
+            <h3 class="mt-3">Новинки</h3>
+            <hr>
+            <div class="movies">
+
+                    <?php $view->component('movie'); ?>
+
+            </div>
+        </div>
+    </main>
 <?php $view->component('end')?>

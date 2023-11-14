@@ -17,7 +17,7 @@ class UploadedFile implements UploadedFileInterface
 
     public function move(string $path, string $fileName = null): string|false
     {
-        $storagePath = APP_PATH . "/storage/$path";
+        $storagePath = APP_PATH . "/Storage/$path";
 
         if (! is_dir($storagePath)) {
             mkdir($storagePath, 0777, true);
@@ -28,7 +28,7 @@ class UploadedFile implements UploadedFileInterface
         $filePath = "$storagePath/$fileName";
 
         if (move_uploaded_file($this->tmpName, $filePath)) {
-            return "storage/$path/$fileName";
+            return "$path/$fileName";
         }
 
         return false;
