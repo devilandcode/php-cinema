@@ -11,13 +11,8 @@ use App\Middleware\GuestMiddleware;
 return [
 
     Route::get('/', [HomeController::class, 'index']),
-    Route::get('/movies', [MovieController::class, 'index']),
-    Route::get('/admin/movies/add', [MovieController::class, 'add'], [AuthMiddleware::class]),
-    Route::post('/admin/movies/add', [MovieController::class, 'store'], [AuthMiddleware::class]),
-    Route::get('/register', [RegisterController::class, 'index'], [GuestMiddleware::class]),
-    Route::post('/register', [RegisterController::class, 'register'], [GuestMiddleware::class]),
-    Route::get('/login', [LoginController::class, 'index'], [GuestMiddleware::class]),
-    Route::post('/login', [LoginController::class, 'login'], [GuestMiddleware::class]),
-    Route::post('/logout', [LoginController::class, 'logout']),
+    Route::get('/register', [RegisterController::class, 'index']),
+    Route::post('/register', [RegisterController::class, 'register']),
+
 
 ];
