@@ -11,9 +11,9 @@ class AdminController extends \App\Kernel\Controller\Controller
     public function index()
     {
         $categories =  new CategoryService($this->db());
-        dd($categories->all());
+
         $this->view('admin/index', [
-            'categories' => $categories
+            'categories' => $categories->all()
         ]);
     }
 }

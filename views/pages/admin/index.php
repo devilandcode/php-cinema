@@ -1,6 +1,8 @@
 <?php
 /**
  * @var \App\Kernel\View\ViewInterface $view;
+ * @var array<App\Models\Category> $categories;
+ * @var App\Models\Category $category;
  */
 ?>
 
@@ -56,8 +58,9 @@
                 </thead>
                 <tbody>
                 <?php
-                foreach ($categories as $categories) {
-                    $view->component('admin/categories', ['categories' => $categories]);
+
+                foreach ($categories as $category) {
+                    $view->component('admin/category', ['category' => $category]);
                 }
                 ?>
                 </tbody>

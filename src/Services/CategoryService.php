@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Kernel\Database\DatabaseInterface;
+use App\Models\Category;
 
 class CategoryService
 {
@@ -14,6 +15,17 @@ class CategoryService
 
     public function all(): array
     {
-        return $this->db->get('categories');
+        $categories = $this->db->get('categories');
+
+        $categories = array_map(function ($category) {
+            return new Category(
+                id: $category['id'],
+                name: $category['category_name'],
+                createdAt: $category['created_at'],
+                updatedAt: $category['updated_at']
+            );
+        }, $categories);
+
+        return $categories;
     }
 }
