@@ -9,11 +9,11 @@
 
     <main class="form-signin w-100 m-auto">
         <form action="/login" method="post">
-            <?php if ($session->has('error')) { ?>
+            <?php if ($session->has('error')) : ?>
                 <div class="alert alert-danger">
                     <?php echo $session->getFlash('error') ?>
                 </div>
-            <?php } ?>
+            <?php endif; ?>
             <div class="d-flex" style="align-items: center; justify-content: space-between">
                 <h2 style="color:white">Login</h2>
                 <a href="/" class="d-flex align-items-center mb-5 mb-lg-0 text-white text-decoration-none">
