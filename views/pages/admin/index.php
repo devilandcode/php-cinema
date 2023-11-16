@@ -55,11 +55,11 @@
                 </tr>
                 </thead>
                 <tbody>
-<!--                --><?php
-//                foreach ($categories as $categories) {
-//                    $view->component('admin/categories', ['categories' => $categories]);
-//                }
-//                ?>
+                <?php
+                foreach ($categories as $categories) {
+                    $view->component('admin/categories', ['categories' => $categories]);
+                }
+                ?>
                 </tbody>
             </table>
         </div>
