@@ -20,7 +20,7 @@
                     <h5 class="m-0"><span class="badge bg-warning warn__badge">IMDB</span></h5>
                 </a>
             </div>
-            <div class="form-floating mt-3">
+            <div class="form-floating mt-3 mb-2">
                 <input
                         type="email"
                         class="form-control"
