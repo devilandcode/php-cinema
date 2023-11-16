@@ -21,14 +21,14 @@
                                     class="form-control <?php echo $session->has('name') ? 'is-invalid' : '' ?>"
                                     id="name"
                                     name="name"
-                                    placeholder=""
+                                    placeholder="Name  "
                             >
                             <label for="name">Name</label>
-                            <?php if ($session->has('name')) { ?>
+                            <?php if ($session->has('name')) : ?>
                                 <div id="name" class="invalid-feedback">
                                     <?php echo $session->getFlash('name')[0] ?>
                                 </div>
-                            <?php } ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -40,14 +40,14 @@
                                     class="form-control <?php echo $session->has('email') ? 'is-invalid' : '' ?>"
                                     name="email"
                                     id="email"
-                                    placeholder=""
+                                    placeholder="E-mail"
                             >
                             <label for="email">E-mail</label>
-                            <?php if ($session->has('email')) { ?>
+                            <?php if ($session->has('email')) : ?>
                                 <div id="email" class="invalid-feedback">
                                     <?php echo $session->getFlash('email')[0] ?>
                                 </div>
-                            <?php } ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -62,11 +62,11 @@
                                     placeholder="*********"
                             >
                             <label for="password">Password</label>
-                            <?php if ($session->has('password')) { ?>
+                            <?php if ($session->has('password')) : ?>
                                 <div id="password" class="invalid-feedback">
                                     <?php echo $session->getFlash('password')[0] ?>
                                 </div>
-                            <?php } ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-md">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="row g-2">
-                    <button class="btn btn-primary">Create an Account</button>
+                    <button class="btn btn-primary" style="background-color: #ffc107;color:black;">Create an Account</button>
                 </div>
             </form>
         </div>
