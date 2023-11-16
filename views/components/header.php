@@ -46,7 +46,7 @@ $user = $auth->user();
             <div class="d-flex align-items-center text-end">
                 <?php if ($auth->check()) : ?>
                     <div class="d-flex align-items-center column-gap-4">
-                        <p class="m-0"> User: name</p>
+                        <p class="m-0"><span  class="nav-link mx-2 px-2">User: <span style="color: #ffc107"><?= $auth->user()->email; ?></span></span></p>
                         <form action="/logout" method="post">
                             <button class="btn btn-danger d-flex align-items-center column-gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">

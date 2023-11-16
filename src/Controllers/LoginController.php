@@ -32,7 +32,7 @@ class LoginController extends Controller
         $password = $this->request()->input('password');
         $this->auth()->attempt($username, $password);
 
-        $this->redirect('/home');
+        $this->redirect('/');
     }
 
     public function logout()
