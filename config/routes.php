@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AdminController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\MovieController;
@@ -12,9 +13,11 @@ return [
 
     Route::get('/', [HomeController::class, 'index']),
     Route::get('/register', [RegisterController::class, 'index']),
+    Route::post('/register-index', [RegisterController::class, 'index']),
     Route::post('/register', [RegisterController::class, 'register']),
     Route::get('/login', [LoginController::class, 'index']),
+    Route::post('/login-index', [LoginController::class, 'index']),
     Route::post('/login', [LoginController::class, 'login']),
     Route::post('/logout', [LoginController::class, 'logout']),
-
+    Route::get('/admin', [AdminController::class, 'index']),
 ];
