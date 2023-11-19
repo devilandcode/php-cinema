@@ -31,4 +31,13 @@ class CategoryController extends Controller
 
         dd('Successfully added user with id:' . $id);
     }
+
+    public function destroy()
+    {
+        $this->db()->delete('categories', [
+            'id' => $this->request()->input('id')
+        ]);
+
+        $this->redirect('/admin');
+    }
 }
