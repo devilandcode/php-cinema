@@ -3,9 +3,13 @@
 namespace App\Controllers;
 
 use App\Kernel\Controller\Controller;
+use App\Services\CategoryService;
 
 class CategoryController extends Controller
 {
+    private Categories $service;
+
+
     public function create(): void
     {
         $this->view('admin/categories/add');
@@ -39,5 +43,14 @@ class CategoryController extends Controller
         ]);
 
         $this->redirect('/admin');
+    }
+
+    public function service()
+    {
+        if (! isset($this->service())) {
+            $this->service = new CategoryService($this->db())
+        }
+
+        return $this->service;
     }
 }

@@ -96,7 +96,7 @@ class Database implements DatabaseInterface
 
         $sql = "DELETE FROM $table $where";
         $stmt = $this->pdo->prepare($sql);
-        
+
         $stmt->execute($conditions);
     }
 
