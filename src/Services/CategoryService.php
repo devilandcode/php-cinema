@@ -28,4 +28,11 @@ class CategoryService
 
         return $categories;
     }
+
+    public function delete(int $id): void
+    {
+        $this->db->delete('categories', [
+            'id' => $id
+        ]);
+    }
 }
