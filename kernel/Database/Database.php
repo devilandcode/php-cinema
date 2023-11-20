@@ -102,6 +102,19 @@ class Database implements DatabaseInterface
 
     public function update(string $table, array $data, array $conditions = []): void
     {
-        // TODO: Implement update() method.
+        $fields =  array_keys($data);
+
+        $set = implode(', ', array_map(fn($field) => "$field = :$field", $fields));
+
+        $where ='';
+
+        if (count($conditions) > 0) {
+            $where = 'WHERE ' . implode(' AND ', array_map(fn ($field) => "$field = :$field", array_keys($conditions)));
+        }
+
+        $sql = "UPDATE $table SET $set $where";
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->execute(array_merge($data, $conditions));
     }
 }
