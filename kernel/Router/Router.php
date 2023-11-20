@@ -34,6 +34,7 @@ class Router implements RouterInterface
 
     public function dispatch(string $uri, string $method): void
     {
+
         $route = $this->findRoute($uri, $method);
 
         if(!$route) {
@@ -71,9 +72,11 @@ class Router implements RouterInterface
 
     private function findRoute(string $uri, string $method): Route|false
     {
+
         if(!isset($this->routes[$method][$uri])) {
             return false;
         }
+
 
         return $this->routes[$method][$uri];
     }

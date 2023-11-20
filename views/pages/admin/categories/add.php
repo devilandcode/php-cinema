@@ -8,7 +8,7 @@
 <?php $view->component('start'); ?>
 <main>
     <div class="container">
-        <div class="rowr">
+        <div class="row">
             <h3 class="mt-3" style="text-align: center;color: white">Add new genre</h3>
             <hr>
         </div>

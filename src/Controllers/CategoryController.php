@@ -7,7 +7,7 @@ use App\Services\CategoryService;
 
 class CategoryController extends Controller
 {
-    private Categories $service;
+    private CategoryService $service;
 
 
     public function create(): void
@@ -29,26 +29,54 @@ class CategoryController extends Controller
             exit;
         }
 
-        $id = $this->db()->insert('categories', [
-            'category_name' => $this->request()->input('name'),
-        ]);
+        $this->service()->store($this->request()->input('name'));
 
-        dd('Successfully added user with id:' . $id);
+        $this->redirect('/admin');
     }
 
-    public function destroy()
+    public function edit(): void
     {
-        $this->db()->delete('categories', [
-            'id' => $this->request()->input('id')
+        $category = $this->service()->find($this->request()->input('id'));
+
+        $this->view('admin/categories/update',['category' => $category]);
+    }
+
+    public function destroy(): void
+    {
+        $this->service()->delete(
+            $this->request()->input('id')
+        );
+
+        $this->redirect('/admin');
+    }
+
+    public function update()
+    {
+        $validation = $this->request()->validate([
+            'name' => ['required', 'min:3', 'max:255'],
         ]);
+
+        if (! $validation) {
+            foreach ($this->request()->errors() as $field => $errors) {
+                $this->session()->set($field, $errors);
+            }
+
+        $this->redirect("/admin/categories/update?id={$this->request()->input('id')}");
+            die;
+        }
+
+        $this->service()->update(
+            $this->request()->input('name'),
+            $this->request()->input('id'),
+        );
 
         $this->redirect('/admin');
     }
 
     public function service()
     {
-        if (! isset($this->service())) {
-            $this->service = new CategoryService($this->db())
+        if (! isset($this->service)) {
+            $this->service = new CategoryService($this->db());
         }
 
         return $this->service;
