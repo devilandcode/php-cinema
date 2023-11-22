@@ -50,7 +50,7 @@ class CategoryController extends Controller
         $this->redirect('/admin');
     }
 
-    public function update()
+    public function update(): void
     {
         $validation = $this->request()->validate([
             'name' => ['required', 'min:3', 'max:255'],
