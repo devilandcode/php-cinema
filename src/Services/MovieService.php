@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Kernel\Database\DatabaseInterface;
 use App\Kernel\Upload\UploadedFileInterface;
+use App\Models\Movie;
 
 class MovieService
 {
@@ -24,5 +25,20 @@ class MovieService
             'category' => $category
         ]);
 
+    }
+
+    public function all(): array
+    {
+        $movies = $this->db->get('movies');
+
+        return array_map(function($movie) {
+            return new Movie(
+                $movie['id'],
+                $movie['movie_name'],
+                $movie['description'],
+                $movie['category'],
+                $movie['image']
+            );
+        }, $movies);
     }
 }
