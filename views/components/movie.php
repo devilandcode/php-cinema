@@ -6,10 +6,10 @@
 ?>
 
 <a href="/movie?id=1" class="card text-decoration-none movies__item">
-    <img src="http://kino.local/storage/movies/8e47f952974aa45245dc102d80de525e.jpg" height="200px" class="card-img-top" alt="MI">
+    <img src="<?php echo $storage->url($movie->image()) ?>" height="200px" class="card-img-top" alt="MI">
     <div class="card-body">
-        <h5 class="card-title">Mission impossible</h5>
+        <h5 class="card-title"><?php echo $movie->name(); ?></h5>
         <p class="card-text">Rating <span class="badge bg-warning warn__badge">+++</span></p>
-        <p class="card-text">Good film</p>
+        <p class="card-text"><?php echo $movie->description(); ?></p>
     </div>
 </a>
