@@ -46,7 +46,7 @@
                                     <textarea
                                         class="form-control <?php echo $session->has('comment') ? 'is-invalid' : '' ?>"
                                         name="comment"
-                                        placeholder="Укажи свое мнение о фильме"
+                                        placeholder="Input your opinion about movie"
                                         id="floatingTextarea2"
                                         style="height: 100px"
                                     ></textarea>
@@ -61,7 +61,7 @@
                             </form>
                         <?php } else { ?>
                             <div class="alert alert-warning m-3 w-100">
-                                Для того, чтобы оставить отзыв, необходимо <a href="/login">авторизоваться</a>
+                                For making review<a href="/login">Log in</a>
                             </div>
                         <?php } ?>
                     </div>
@@ -71,7 +71,7 @@
                             <p class="card-text">Rate <span class="badge bg-warning warn__badge"><?php echo $movie->avgRating() ?></span></p>
                             <p class="card-text"><?php echo $movie->description() ?></p>
                             <p class="card-text"><small class="text-body-secondary">Added <?php echo $movie->createdAt() ?></small></p>
-                            <h4>Отзывы</h4>
+                            <h4>Reviews</h4>
                             <div class="one-movie__reviews">
                                 <?php foreach ($movie->reviews() as $review) { ?>
                                     <?php $view->component('review_card', ['review' => $review]) ?>

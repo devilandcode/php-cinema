@@ -34,7 +34,7 @@ class Router implements RouterInterface
 
     public function dispatch(string $uri, string $method): void
     {
-
+        dd($_SERVER, $_GET);
         $route = $this->findRoute($uri, $method);
 
         if(!$route) {
