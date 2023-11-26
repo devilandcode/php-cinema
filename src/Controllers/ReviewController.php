@@ -34,7 +34,7 @@ class ReviewController extends Controller
             $this->request()->input('id'),
             $this->auth()->id()
         );
-        
+
         $this->redirect("/movie?id={$this->request()->input('id')}");
     }
 }

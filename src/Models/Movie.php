@@ -10,6 +10,7 @@ class Movie
         private string $description,
         private string $category,
         private string $image,
+        private array $reviews = []
     )
     {
     }
@@ -37,5 +38,13 @@ class Movie
     public function image(): string
     {
         return $this->image;
+    }
+
+    /**
+     * @return array<Review>
+     */
+    public function reviews(): array
+    {
+        return $this->reviews;
     }
 }
