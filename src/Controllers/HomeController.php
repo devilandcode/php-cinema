@@ -12,8 +12,8 @@ class HomeController extends Controller
         $movies =  new MovieService($this->db());
 
         $this->view('home', [
-            'movies' => $movies->newMovies()
-        ]);
+            'movies' => $movies->new(),
+        ], 'Главная страница');
     }
 
 }
